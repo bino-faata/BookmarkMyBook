@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books what i read</title>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo&display=swap" rel="stylesheet">
+<!--     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" /> -->
+    <link rel="stylesheet" href="style.css">
+    <script src="script/main.js"></script>
+  </head>
+<body>
+<div class="header">
+  <header>
+    <h1>Books what i read</h1>
+  </header>
+</div>
+
+  <form>
+    <input type="text" data-text="author" placeholder="Author Name" class="bookInput">
+    <input type="text" data-text="title" placeholder="Book Title" class="bookInput">
+    <input type="text" data-text="genre" placeholder="Book Genre" class="bookInput">
+    <input type="text" data-text="poster" placeholder="Poster link" class="bookInput">
+    <button class="addBook" type="submit">
+      <b>Add Book</b>
+    </button>
+  </form>
+  
+  <!-- <div class="select">
+    <select name="todos" class="filter-todo">
+      <option value="all">All</option>
+      <option value="completed">Completed</option>
+      <option value="uncompleted">Uncompleted</option>
+    </select>
+  </div> -->
+
+  <div class="booksContainer">
+    <ul class="booksList"></ul>
+  </div>
+
+</body>
+</html>
