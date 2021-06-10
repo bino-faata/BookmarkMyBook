@@ -12,6 +12,7 @@ function app() {
   // * [2] - Genre
   // * [3] - Poster link
   // **
+  let booksCounter = 0;
   const bookInput = document.querySelectorAll(".bookInput");
 
   const addBookButton = document.querySelector(".addBook");
@@ -43,6 +44,8 @@ function app() {
 
     bookDiv.appendChild(newBook);
     bookList.appendChild(bookDiv);
+    
+    saveToLocalStorage({Author: `${bookInput[0].value}`, Title: `${bookInput[1].value}`, Genre: `${bookInput[2].value}`, img: `${bookInput[3].value}`});
   };
   
   function saveToLocalStorage(book) {
