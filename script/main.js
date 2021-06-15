@@ -5,7 +5,7 @@ window.addEventListener('DOMContentLoaded', () => {
 function app() {
   
   // ** 
-  // * @bookInput is and NodeList of elements
+  // * @bookInput is an NodeList of elements
   // * where
   // * [0] - Author Name
   // * [1] - Book Title
@@ -14,9 +14,10 @@ function app() {
   // **
   let booksCounter = 0;
   const bookInput = document.querySelectorAll(".bookInput");
-
   const addBookButton = document.querySelector(".addBook");
   const bookList = document.querySelector(".booksList");
+
+  // ** Look into localStorage and show it in browser if exists
   getBooks();
 
   addBookButton.addEventListener('click', addBook);
@@ -51,10 +52,9 @@ function app() {
             <h5>Title: <b>${bookInput[1].value}</b></h5>
             <h5>Genre: <b>${bookInput[2].value}</b></h5>`;
 
+      // ** Showing items in browser and write data in localStorage
       bookDiv.innerHTML = bookData;
-
       container.appendChild(bookDiv);
-      
       saveToLocalStorage({Author: `${bookInput[0].value}`, Title: `${bookInput[1].value}`, Genre: `${bookInput[2].value}`, img: `${bookInput[3].value}`});
 
       // ** Clear input fields after adding book
@@ -91,6 +91,10 @@ function app() {
       books = JSON.parse(localStorage.getItem('books'));
     };
 
+    // ** 
+    // * Get each {...} item in localStorage and
+    // * generate for it DOM content
+    // **
     books.forEach((book) => {
       const container = document.querySelector("#booksList");
       const bookDiv = document.createElement("div");
@@ -109,5 +113,9 @@ function app() {
       container.appendChild(bookDiv);
     });
   };
+
+  // **
+  // * TODO
+  // * 1) make an remove item function (from localStorage)
 };
 
