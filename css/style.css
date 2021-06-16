@@ -21,7 +21,6 @@ form input:focus {
   font-weight: 300;
 }
 .book {
-  /*margin: 1rem;*/
   display: grid;
   grid-gap: 1rem;
   overflow: hidden;
@@ -32,15 +31,23 @@ h5 {
   line-height: 0.6 !important;
 }
 
+.deleting {
+  transition: 0.3s ease;
+  transform: scale(0, 0);
+}
+.adding {
+  transition: 0.3s ease;
+  transform: scale(1, 1);
+}
 
 @media (min-width: 40.0rem) {
   #booksList {grid-template-columns: repeat(3, 1fr); }
 }
 /* Larger than tablet screen */
-@media (min-width: 80.0rem) {
+/*@media (min-width: 80.0rem) {
   #booksList {grid-template-columns: repeat(5, 1fr); }
-}
+}*/
 /* Larger than desktop screen */
-@media (min-width: 120.0rem) {
+/*@media (min-width: 120.0rem) {
   #booksList {grid-template-columns: repeat(7, 1fr); }
-}
+}*/
