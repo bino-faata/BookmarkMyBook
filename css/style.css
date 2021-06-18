@@ -1,5 +1,5 @@
 body{
-  background-image: radial-gradient(#fdfcfb, #e2d1c3);
+  background: #e2d1c3;
 }
 form {
   padding: 2rem;
@@ -13,20 +13,40 @@ form input:focus {
   transition: all 0.3s ease;
   box-shadow: 2px 1px 4px rgba(155, 77, 202, 0.7);
 }
+
 #booksList {
   display: grid;
 }
+
 .title {
   margin: 2rem;
   font-weight: 300;
 }
 .book {
-  display: grid;
+  /*display: grid;*/
   grid-gap: 1rem;
   overflow: hidden;
   margin: 0 auto;
 }
-
+.book img {
+  max-width: 60%;
+}
+.import {
+  display: none;
+  transition: 0.3s ease;
+}
+.export{
+  display: none;
+  transition: 0.3s;
+}
+.library {
+  display: none;
+  transition: 0.3s;
+}
+.form {
+  display: none;
+  transition: 0.3s;
+}
 h5 {
   line-height: 0.6 !important;
 }

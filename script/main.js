@@ -9,6 +9,70 @@ function app() {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
   };
 
+  // ** 
+  // * Make visibility
+  // **
+  const form = document.querySelector(".form");
+  const library = document.querySelector(".library");
+  const exportLib = document.querySelector(".export");
+  const importLib = document.querySelector(".import");
+
+  const showFormButton = document.querySelector("#addBook");
+  const showExportButton = document.querySelector("#export");
+  const showImportButton = document.querySelector("#import");
+  const showLibraryButton = document.querySelector("#library");
+
+  const importDataButton = document.querySelector("#importData");
+
+  showFormButton.addEventListener("click", () => {
+    if(form.style.display !== "inherit") {
+      library.style.display = "none";
+      exportLib.style.display = "none";
+      importLib.style.display = "none";
+      form.style.display = "inherit";
+    };
+  });
+
+  showLibraryButton.addEventListener("click", () => {
+    if(library.style.display !== "inherit") {
+        library.style.display = "";
+        exportLib.style.display = "none";
+        importLib.style.display = "none";
+        form.style.display = "none";
+      };
+  });
+
+  showExportButton.addEventListener("click", () => {
+    if(exportLib.style.display !== "inline-block") {
+        library.style.display = "none";
+        exportLib.style.display = "inline-block";
+        importLib.style.display = "none";
+        form.style.display = "none";
+      };
+      showTextToExport();
+  });
+
+  showImportButton.addEventListener("click", () => {
+    if(importLib.style.display !== "inline-block") {
+        library.style.display = "none";
+        exportLib.style.display = "none";
+        importLib.style.display = "inline-block";
+        form.style.display = "none";
+      };
+  });
+
+  importDataButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    const textareaImport = document.querySelector("#libraryImport");
+    let importData = textareaImport.value;
+    localStorage.setItem("books", JSON.stringify(importData));
+  });
+
+  function showTextToExport() {
+    const displayElement = document.querySelector("#libraryExport");
+    displayElement.value = localStorage.getItem("books");
+  };  
+
   // **
   // * @bookInput is an NodeList of elements
   // * where
@@ -146,15 +210,31 @@ function app() {
       removelocalBook(book);
     });
   };
-  
+
+  // **
+  // * Deleting book from localStorage
+  // **
   function removelocalBook(book){
-    console.log(book)
+    let books;
+    const bookId = book.getAttribute("id");
+
+    if (localStorage.getItem("books") === null) {
+      books = [];
+    } else {
+      books = JSON.parse(localStorage.getItem("books"));
+    };
+
+    // ** check id's
+    if(bookId === book.id) {
+      books.splice(books[book.id], 1);
+      localStorage.setItem('books', JSON.stringify(books));
+    };
   };
 
 
   // **
   // * TODO
-  // * 1)
+  // * 1) Improve Import function (add to current library)
   // * 2) add some filter by author name, genre, title
   // **
-}
+};

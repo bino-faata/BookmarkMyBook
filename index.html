@@ -19,12 +19,22 @@
         <h1 class="title">BookmarkMyBook</h1>
       </div>
     </div>
+    <div class="row">
+    <div class="column">
+        <button id="library">Books Library</button>
+        <button id="addBook">Add Books to Library</button>
+    </div>
+      <div class="column">
+        <button id="import">Import JSON to library</button>
+        <button id="export">Export JSON from library</button>
+      </div>
+    </div>
 </header>
 
 <div class="container">
   <div class="row">
     <div class="column">
-      <form>
+      <form class="form">
         <input type="text" data-text="author" placeholder="Author Name" class="bookInput">
         <input type="text" data-text="title" placeholder="Book Title" class="bookInput">
         <input type="text" data-text="genre" placeholder="Book Genre" class="bookInput">
@@ -38,7 +48,30 @@
 </div>
 
 <div class="container">
-  <div class="row" id="booksList"></div>
+  <div class="row library" id="booksList"></div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="column">
+      <div class="import">
+        <h3>Paste JSON data previosly exported. Current data will be saved</h3>
+        <textarea id="libraryImport" cols="60" rows="30"></textarea>
+        <button id="importData">Import to Library</button>
+      </div>
+      </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="column">
+      <div class="export">
+        <h3>Copy and save this data to file</h3>
+        <textarea id="libraryExport" cols="60" rows="30"></textarea>
+      </div>
+    </div>
+  </div>
 </div>
 
 </body>
